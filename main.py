@@ -35,18 +35,8 @@ async def on_message(message):
         
 @client.event
 async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content.startswith('fuck you'):
-        await message.channel.send('Okay ;)')
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
     if message.content.startswith('ur mom'):
-        await message.channel.send('Yo mama so fat that she releases hawking radiation.')
+        message.send('ur mom so fat that she realeases hawking radiation')
 
 @tree.command(name='ping', description='Pong!')
 async def ping(interation: discord.Interaction, message: str = "AHHHHHH!!"):
