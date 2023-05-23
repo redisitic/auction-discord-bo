@@ -3,9 +3,12 @@ import os
 from dotenv import load_dotenv
 import json
 from items import Items
+from discord.ext import commands
 load_dotenv()
 
+bot = commands.Bot
 people = [609068698791313421, 1105861447709376544, 812416647934902312, 354546286634074115]
+annoyParth = False 
 
 client = discord.Client(intents=discord.Intents.all())
 tree = discord.app_commands.CommandTree(client)
@@ -28,8 +31,6 @@ class Auction(discord.app_commands.Group):
                                       })
     
         await interation.followup.send(str(item1))
-    
-    
 
 @client.event
 async def on_ready():
@@ -56,8 +57,9 @@ async def on_message(message: discord.Message):
     if message.content.startswith("!ping farzaan"):
         for i in 25:
             await message.channel.send("Hey @1105861447709376544")
-    if message.author.id == 354546286634074115:
-        await message.channel.send("Hey @354546286634074115")
+
+    if message.author.id == 354546286634074115 and annoyParth == True:
+        await message.channel.send("Die Parth")
 
 @tree.command(name='ping', description='Pong!')
 async def ping(interation: discord.Interaction, message: str = "AHHHHHH!!"):
