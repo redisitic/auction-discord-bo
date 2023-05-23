@@ -39,4 +39,4 @@ class Items():
             
             
     def  __str__(self) -> str:
-        return f"Item: {self.name} \n Starting Bid: {self.starting_bid} \n Current Bid: {self.current_bid} \n Autobuy: {self.autobuy}"
+        return f"Item: {self.name} \n Starting Bid: {self.starting_bid} \n Current Bid: {self.current_bid} | Autobuy: {self.autobuy}"

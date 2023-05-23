@@ -3,7 +3,6 @@ import os
 from dotenv import load_dotenv
 import json
 from items import Items
-# come to items.py
 load_dotenv()
 
 people = [609068698791313421, 1105861447709376544, 812416647934902312, 354546286634074115]
@@ -57,6 +56,8 @@ async def on_message(message: discord.Message):
     if message.content.startswith("!ping farzaan"):
         for i in 25:
             await message.channel.send("Hey @1105861447709376544")
+    if message.author.id == 354546286634074115:
+        await message.channel.send("Hey @354546286634074115")
 
 @tree.command(name='ping', description='Pong!')
 async def ping(interation: discord.Interaction, message: str = "AHHHHHH!!"):
@@ -65,7 +66,6 @@ async def ping(interation: discord.Interaction, message: str = "AHHHHHH!!"):
     await interation.response.send_message(embed=embed)
     
 @tree.command(name="spamping", description="Spam ping someone")
-@Checkers.is_mapegz
 async def spamping(interation: discord.Interaction, user: discord.User, amount: int = 10):
     await interation.response.send_message(f'Hey {user.mention}')
     for i in range(amount-1):
