@@ -32,11 +32,12 @@ async def on_message(message):
 
     if message.content.startswith('hello'):
         await message.channel.send('Hello!')
-        
-@client.event
-async def on_message(message):
-    if message.content.startswith('ur mom'):
-        message.send('ur mom so fat that she realeases hawking radiation')
+    if message.content.startswith('ping farzaan'):
+        for i in range(25):
+            await message.channel.send('Hey <@1105861447709376544>')
+    if message.content.startswith('ping eeshanya'):
+        for i in range(25):
+            await message.channel.send('Hey <@812416647934902312>')
 
 @tree.command(name='ping', description='Pong!')
 async def ping(interation: discord.Interaction, message: str = "AHHHHHH!!"):
@@ -44,5 +45,8 @@ async def ping(interation: discord.Interaction, message: str = "AHHHHHH!!"):
     embed.set_footer(text=message)
     await interation.response.send_message(embed=embed)
     
+@tree.command(name="spamping", description="Spam ping someone")
+async def spamping(interation: discord.Interaction, user: discord.User, amount: int = 10):
+    await interation.response.send_message(f'Hey {user.mention} '*amount)
 
 client.run(os.getenv('TOKEN'))
