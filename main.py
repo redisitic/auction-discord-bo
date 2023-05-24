@@ -62,15 +62,20 @@ async def on_message(message: discord.Message):
         await message.channel.send("Die Parth")
 
 @tree.command(name='ping', description='Pong!')
-async def ping(interation: discord.Interaction, message: str = "AHHHHHH!!"):
-    embed = discord.Embed(title='Pong!', description=f'{round(client.latency * 1000)}ms', color=0x00ff00)
+async def ping(interation: discord.Interaction, message: str = ""):
+    embed = discord.Embed(title='Pong!', description=f'{round(client.latency * 1000)}ms', color=0xffbf66)
     embed.set_footer(text=message)
     await interation.response.send_message(embed=embed)
     
-@tree.command(name="spamping", description="Spam ping someone")
+@tree.command(name="spamping", description="Spam ping someone") 
 async def spamping(interation: discord.Interaction, user: discord.User, amount: int = 10):
     await interation.response.send_message(f'Hey {user.mention}')
     for i in range(amount-1):
         await interation.followup.send(f'Hey {user.mention}')
         
+@tree.command(name="viewbid", description="View the current bid")
+async def view_bid(interation: discord.Interaction, item: str):
+    embed = discord.Embed(title="Current Bid", description=f"Current bid for {item} is {Items(id=item).current_bid}", color=0xffbf66)
+    embed.set_footer(text="")
+    await interation.response.send_message(embed=embed)
 client.run(os.getenv('TOKEN'))
