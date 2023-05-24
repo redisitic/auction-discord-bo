@@ -1,7 +1,7 @@
 import json
 import time
 import uuid
-# dont do it, you will regret it
+
 class Items():
     def __init__(self, id:str = None, parameters:dict = None):
         if id is None:
